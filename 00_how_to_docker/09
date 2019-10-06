@@ -1,4 +1,2 @@
-apt-get update
-apt-get upgrade
-apt-get install gcc
-apt-get install git
+apt-get update && apt-get upgrade -y
+apt-get install gcc git -y
