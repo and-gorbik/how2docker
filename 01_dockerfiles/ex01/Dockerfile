@@ -3,7 +3,7 @@ FROM debian:10.1
 ENV TS3SERVER_LICENSE=accept
 EXPOSE 9987/udp 30033 10011
 
-RUN apt-get update && apt-get upgrade -y && \
+RUN apt-get update && \
     apt-get install wget bzip2 -y
 
 RUN useradd -m teamspeak
