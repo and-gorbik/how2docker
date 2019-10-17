@@ -1,11 +1,12 @@
 FROM ruby
 
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y nodejs && \
+RUN apt-get update && \
+    apt-get install -y nodejs build-essential libpq-dev sqlite3 && \
     gem install rails
 
-WORKDIR /opt/app
+
+ONBUILD WORKDIR /opt/app
 ONBUILD COPY app/. .
 ONBUILD RUN bundle install && \
-            rake db:migrate && \
-            rake db:seed
+            bundle exec rake db:migrate && \
+            bundle exec rake db:seed
