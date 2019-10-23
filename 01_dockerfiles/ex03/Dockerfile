@@ -14,5 +14,7 @@ EXPOSE 80 22
 
 ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && gitlab-ctl reconfigure && tail -f /dev/null
 
+# docker-machine create --driver virtualbox --virtualbox-cpu-count "2" --virtualbox-memory "4096" gitlab-host
+# eval $(docker-machine env gitlab-host)
 # docker build -t gitlab .
-# docker run -it --rm -p 8080:80 -p 8022:22 --privileged gitlab
+# docker run -it --rm -p 8080:80 -p 8022:22 gitlab
